@@ -41,16 +41,17 @@ GO
 
 -- UPDATE
 CREATE OR ALTER PROC UpdateStudentExam
-@studentID INT, @examID INT, @Grade FLOAT
+@studentID INT, @examID INT, @Grade FLOAT, @all BIT = 0
 WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
-		UPDATE se
-		SET se.Grade = @Grade
-		FROM ITI_Exams.dbo.Student_Exam se
-		WHERE se.Student_ID = @studentID
-		AND se.Exam_ID = @examID
+		IF (@studentID IS NOT NULL OR @examID IS NOT NULL OR @all = 1)
+			UPDATE se
+			SET se.Grade = @Grade
+			FROM ITI_Exams.dbo.Student_Exam se
+			WHERE se.Student_ID = @studentID
+			AND se.Exam_ID = @examID
 	END TRY  
 	BEGIN CATCH  
 		THROW 500, 'Could not update student exam', 16
@@ -61,7 +62,7 @@ GO
 
 -- DELETE
 CREATE OR ALTER PROC DeleteStudentExam
-@studentID INT, @examID INT, @all BIT = 0
+@studentID INT, @examID INT, @all BIT
 WITH ENCRYPTION
 AS
 BEGIN
