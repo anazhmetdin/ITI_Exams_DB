@@ -33,11 +33,10 @@ WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
-	IF (@date IS NOT NULL)
-		INSERT INTO ITI_Exams.dbo.Exam (date)
-		VALUES (@date)
-	ELSE
-		INSERT INTO ITI_Exams.dbo.Exam DEFAULT VALUES
+	IF (@date IS NULL OR @date < GETDATE())
+		SET @date = GETDATE()
+
+	INSERT INTO ITI_Exams.dbo.Exam (date) VALUES (@date)
 
 	SELECT SCOPE_IDENTITY()
 	
@@ -80,24 +79,27 @@ GO
 
 
 -- DELETE
-CREATE OR ALTER PROC UpdateExam @id INT, @date DATE
+CREATE OR ALTER PROC DeleteExam @id INT, @date DATE
 WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
-	IF (@date IS NOT NULL AND @id IS NOT NULL)
-		UPDATE e
-		SET e.date = @date
+	IF (@date IS NOT NULL OR @id IS NOT NULL)
+		DELETE e
 		FROM ITI_Exams.dbo.Exam e
-		WHERE e.ID = @id
+		WHERE
+		(@id IS NULL OR e.ID = @id)
+		AND
+		(@date IS NULL OR e.date = @date)
 	END TRY  
 	BEGIN CATCH  
-		THROW 500, 'Could not update exam', 16
+		THROW 500, 'Could not delete exam', 16
 	END CATCH
 END;
 GO
 -- UPDATE TEST
-UpdateExam 1, '2022-6-30';
+DeleteExam 1, NULL;
 GO
-UpdateExam NULL, NULL;
+DeleteExam NULL, '2022-6-30';
 GO
+---------------------------------------
