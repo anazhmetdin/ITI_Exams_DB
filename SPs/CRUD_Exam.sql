@@ -58,12 +58,12 @@ GO
 ---------------------------------------
 
 -- UPDATE
-CREATE OR ALTER PROC UpdateExam @id INT, @date DATE
+CREATE OR ALTER PROC UpdateExam @id INT, @date DATE, @all BIT = 0
 WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
-		IF (@date IS NOT NULL AND @id IS NOT NULL)
+		IF (@date IS NOT NULL AND @id IS NOT NULL OR @all = 1)
 			UPDATE e
 			SET e.date = @date
 			FROM ITI_Exams.dbo.Exam e
@@ -85,12 +85,12 @@ GO
 
 
 -- DELETE
-CREATE OR ALTER PROC DeleteExam @id INT, @date DATE
+CREATE OR ALTER PROC DeleteExam @id INT, @date DATE, @all bit = 0
 WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
-		IF (@date IS NOT NULL OR @id IS NOT NULL)
+		IF (@date IS NOT NULL OR @id IS NOT NULL OR @all = 1)
 			DELETE e
 			FROM ITI_Exams.dbo.Exam e
 			WHERE

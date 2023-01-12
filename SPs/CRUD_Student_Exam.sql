@@ -61,12 +61,12 @@ GO
 
 -- DELETE
 CREATE OR ALTER PROC DeleteStudentExam
-@studentID INT, @examID INT
+@studentID INT, @examID INT, @all BIT = 0
 WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
-		IF (@studentID IS NOT NULL OR @examID IS NOT NULL)
+		IF (@studentID IS NOT NULL OR @examID IS NOT NULL OR @all = 1)
 			DELETE se
 			FROM ITI_Exams.dbo.Student_Exam se
 			WHERE
