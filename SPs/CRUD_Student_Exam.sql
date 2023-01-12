@@ -15,7 +15,7 @@ AS
 		AND
 		(@minGrade IS NULL OR se.Grade >= @minGrade)
 		AND
-		(@maxGrade IS NULL OR se.Grade <= @maxGrade);
+		(@maxGrade IS NULL OR se.Grade <= @maxGrade)
 	END TRY  
 	BEGIN CATCH  
 		THROW 500, 'Could not select student exam', 16
@@ -62,7 +62,7 @@ GO
 
 -- DELETE
 CREATE OR ALTER PROC DeleteStudentExam
-@studentID INT, @examID INT, @all BIT
+@studentID INT, @examID INT, @all BIT = 0
 WITH ENCRYPTION
 AS
 BEGIN
