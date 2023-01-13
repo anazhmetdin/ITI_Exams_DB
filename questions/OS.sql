@@ -8,8 +8,6 @@ INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (265, N'
 GO
 INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (266, N'MCQ', N'In Operating Systems, which of the following is a CPU scheduling algorithms?', 5)
 GO
-INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (267, N'MCQ', N'Which of the following user-defined header file extension used in c++?', 5)
-GO
 INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (268, N'MCQ', N'To access the services of the operating system, the interface is provided by the ___________', 5)
 GO
 INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (269, N'MCQ', N'CPU scheduling is the basis of ___________', 5)
@@ -71,14 +69,6 @@ GO
 INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1003, N'Shortest Job First', 266)
 GO
 INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1004, N'All of the mentioned', 266)
-GO
-INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1005, N'hg', 267)
-GO
-INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1006, N'cpp', 267)
-GO
-INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1007, N'h', 267)
-GO
-INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1008, N'hf', 267)
 GO
 INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1009, N'Library', 268)
 GO
@@ -176,8 +166,6 @@ INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (265, 999)
 GO
 INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (266, 1004)
 GO
-INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (267, 1007)
-GO
 INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (268, 1011)
 GO
 INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (269, 1013)
@@ -199,6 +187,4 @@ GO
 INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (278, 1051)
 GO
 INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (279, 1053)
-GO
-INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (280, 1056)
 GO
