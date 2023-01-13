@@ -22,22 +22,9 @@ INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (272, N'
 GO
 INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (273, N'MCQ', N'If a process fails, most operating system write the error information to a ______', 5)
 GO
-INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (274, N'MCQ', N'What is the difference between delete and delete[] in C++?', 5)
-GO
 INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (275, N'MCQ', N'Which one of the following is not a real time operating system?', 5)
 GO
-INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (276, N'MCQ', N'What happens if the following program is executed in C and C++?
-
-#include <stdio.h> 
-void func(void)
-{
-	printf("Hello");
-}
-void main() 
-{ 
-	func();
-	func(2);
-}', 5)
+INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (276, N'MCQ', N'What does OS X has?', 5)
 GO
 INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (277, N'MCQ', N'In operating system, each process has its own __________', 5)
 GO
@@ -45,17 +32,17 @@ INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (278, N'
 GO
 INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (279, N'MCQ', N'Cascading termination refers to the termination of all child processes if the parent process terminates ______', 5)
 GO
-INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (280, N'MTF', N'Threads within the same process can share data with one another by passing pointers to objects on their stacks.', 1)
+INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (280, N'MTF', N'Threads within the same process can share data with one another by passing pointers to objects on their stacks.', 5)
 GO
-INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (281, N'MTF', N'A user-level process cannot modify its own page table entries.', 1)
+INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (281, N'MTF', N'A user-level process cannot modify its own page table entries.', 5)
 GO
-INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (282, N'MTF', N'Immediately after a process has been forked, the same variable in both the parent and the child will have the same virtual memory address but different physical memory addresses.', 1)
+INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (282, N'MTF', N'Immediately after a process has been forked, the same variable in both the parent and the child will have the same virtual memory address but different physical memory addresses.', 5)
 GO
-INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (283, N'MTF', N'The scheduler is the part of an Operating System that determines the priority of each process.', 1)
+INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (283, N'MTF', N'The scheduler is the part of an Operating System that determines the priority of each process.', 5)
 GO
-INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (284, N'MTF', N'"Hyper-threading" refers to the situation in which a modern operating system allows thousands of threads to access the same address space.', 1)
+INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (284, N'MTF', N'"Hyper-threading" refers to the situation in which a modern operating system allows thousands of threads to access the same address space.', 5)
 GO
-INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (285, N'MTF', N'Threads in a process share same file descriptors.', 1)
+INSERT [dbo].[Question] ([ID], [Type], [Statement], [Course_ID]) VALUES (285, N'MTF', N'Threads in a process share same file descriptors.', 5)
 GO
 SET IDENTITY_INSERT [dbo].[Question] OFF
 GO
@@ -141,14 +128,6 @@ INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1031, N'log file', 2
 GO
 INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1032, N'none of the mentioned', 273)
 GO
-INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1033, N'delete is syntactically correct but delete[] is wrong and hence will give an error if used in any case', 274)
-GO
-INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1034, N'delete is used to delete normal objects whereas delete[] is used to pointer objects', 274)
-GO
-INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1035, N'delete is a keyword whereas delete[] is an identifier', 274)
-GO
-INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1036, N'delete is used to delete single object whereas delete[] is used to multiple(array/pointer of) objects', 274)
-GO
 INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1037, N'RTLinux', 275)
 GO
 INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1038, N'Palm OS', 275)
@@ -157,7 +136,7 @@ INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1039, N'QNX', 275)
 GO
 INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1040, N'VxWorks', 275)
 GO
-INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1041, N'What does OS X has?', 276)
+INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1041, N'monolithic kernel with modules', 276)
 GO
 INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1042, N'microkernel', 276)
 GO
@@ -210,8 +189,6 @@ GO
 INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (272, 1025)
 GO
 INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (273, 1031)
-GO
-INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (274, 1036)
 GO
 INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (275, 1038)
 GO
