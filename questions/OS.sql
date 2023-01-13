@@ -158,6 +158,30 @@ INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1055, N'Normally', 2
 GO
 INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1056, N'None of the mentioned', 279)
 GO
+INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1057, N'True', 280)
+GO
+INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1058, N'False', 280)
+GO
+INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1059, N'True', 281)
+GO
+INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1061, N'False', 281)
+GO
+INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1062, N'True', 282)
+GO
+INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1062, N'False', 282)
+GO
+INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1063, N'True', 283)
+GO
+INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1064, N'False', 283)
+GO
+INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1065, N'True', 284)
+GO
+INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1066, N'False', 284)
+GO
+INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1067, N'True', 285)
+GO
+INSERT [dbo].[Choice] ([ID], [Text], [Question_ID]) VALUES (1068, N'False', 285)
+GO
 SET IDENTITY_INSERT [dbo].[Choice] OFF
 GO
 INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (264, 996)
@@ -187,4 +211,16 @@ GO
 INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (278, 1051)
 GO
 INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (279, 1053)
+GO
+INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (280, 1057)
+GO
+INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (281, 1059)
+GO
+INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (282, 1062)
+GO
+INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (283, 1064)
+GO
+INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (284, 1066)
+GO
+INSERT [dbo].[Question_Answer] ([Question_ID], [Answer]) VALUES (285, 1067)
 GO
