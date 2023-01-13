@@ -3,7 +3,7 @@ GO
 ---------------------------------------
 -- SELECT
 CREATE OR ALTER PROC SelectStudentExamQuestionAnswer
-@studentID INT, @examID INT, @questionID INT, @answer INT = NULL
+@studentID INT = NULL, @examID INT = NULL, @questionID INT = NULL, @answer INT = NULL
 WITH ENCRYPTION
 AS
 	BEGIN TRY

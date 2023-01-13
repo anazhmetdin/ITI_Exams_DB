@@ -2,7 +2,8 @@ USE ITI_Exams;
 GO
 ---------------------------------------
 -- SELECT
-CREATE OR ALTER PROC SelectExam @id INT, @dateStart DATE, @dateEnd Date
+CREATE OR ALTER PROC SelectExam
+@id INT = NULL, @dateStart DATE = NULL, @dateEnd Date = NULL
 WITH ENCRYPTION
 AS
 	BEGIN TRY
@@ -30,7 +31,8 @@ GO
 ---------------------------------------
 
 -- INSERT
-CREATE OR ALTER PROC InsertExam @date DATE, @id INT OUTPUT
+CREATE OR ALTER PROC InsertExam
+@date DATE, @id INT OUTPUT
 WITH ENCRYPTION
 AS
 BEGIN
@@ -58,7 +60,8 @@ GO
 ---------------------------------------
 
 -- UPDATE
-CREATE OR ALTER PROC UpdateExam @id INT, @date DATE, @all BIT = 0
+CREATE OR ALTER PROC UpdateExam
+@id INT, @date DATE, @all BIT = 0
 WITH ENCRYPTION
 AS
 BEGIN
@@ -85,7 +88,8 @@ GO
 
 
 -- DELETE
-CREATE OR ALTER PROC DeleteExam @id INT, @date DATE, @all bit = 0
+CREATE OR ALTER PROC DeleteExam
+@id INT, @date DATE, @all bit = 0
 WITH ENCRYPTION
 AS
 BEGIN

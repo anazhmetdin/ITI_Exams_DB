@@ -3,7 +3,7 @@ GO
 ---------------------------------------
 -- SELECT
 CREATE OR ALTER PROC SelectStudentExam
-@studentID INT, @examID INT, @minGrade FLOAT, @maxGrade FLOAT
+@studentID INT = NULL, @examID INT = NULL, @minGrade FLOAT = NULL, @maxGrade FLOAT = NULL
 WITH ENCRYPTION
 AS
 	BEGIN TRY
