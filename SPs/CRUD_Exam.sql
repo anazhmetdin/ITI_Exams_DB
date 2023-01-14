@@ -70,7 +70,8 @@ BEGIN
 			UPDATE e
 			SET e.date = @date
 			FROM ITI_Exams.dbo.Exam e
-			WHERE e.ID = @id
+			WHERE
+			(@id IS NULL OR e.ID = @id)
 	END TRY  
 	BEGIN CATCH  
 		THROW 500, 'Could not update exam', 16

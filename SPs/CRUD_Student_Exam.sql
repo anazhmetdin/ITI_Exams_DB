@@ -18,7 +18,7 @@ AS
 		(@maxGrade IS NULL OR se.Grade <= @maxGrade)
 	END TRY  
 	BEGIN CATCH  
-		THROW 500, 'Could not select student exam', 16
+		THROW 50000, 'Could not select student exam', 16
 	END CATCH
 GO
 ---------------------------------------
@@ -33,7 +33,7 @@ BEGIN
 		INSERT INTO ITI_Exams.dbo.Student_Exam VALUES (@studentID, @examID, @Grade)
 	END TRY  
 	BEGIN CATCH  
-		THROW 500, 'Could not insert student exam', 16
+		THROW 50000, 'Could not insert student exam', 16
 	END CATCH
 END;
 GO
@@ -41,7 +41,7 @@ GO
 
 -- UPDATE
 CREATE OR ALTER PROC UpdateStudentExam
-@studentID INT, @examID INT, @Grade FLOAT, @all BIT = 0
+@studentID INT, @examID INT, @minGrade FLOAT, @maxGrade FLOAT, @Grade FLOAT, @all BIT = 0
 WITH ENCRYPTION
 AS
 BEGIN
@@ -50,11 +50,17 @@ BEGIN
 			UPDATE se
 			SET se.Grade = @Grade
 			FROM ITI_Exams.dbo.Student_Exam se
-			WHERE se.Student_ID = @studentID
-			AND se.Exam_ID = @examID
+			WHERE 
+			(@examID IS NULL OR se.Exam_ID = @examID)
+			AND
+			(@studentID IS NULL OR se.Student_ID = @studentID)
+			AND
+			(@minGrade IS NULL OR se.Grade >= @minGrade)
+			AND
+			(@maxGrade IS NULL OR se.Grade <= @maxGrade)
 	END TRY  
 	BEGIN CATCH  
-		THROW 500, 'Could not update student exam', 16
+		THROW 50000, 'Could not update student exam', 16
 	END CATCH
 END;
 GO
@@ -62,7 +68,7 @@ GO
 
 -- DELETE
 CREATE OR ALTER PROC DeleteStudentExam
-@studentID INT, @examID INT, @all BIT = 0
+@studentID INT, @examID INT, @minGrade FLOAT, @maxGrade FLOAT, @all BIT = 0
 WITH ENCRYPTION
 AS
 BEGIN
@@ -74,9 +80,13 @@ BEGIN
 			(@examID IS NULL OR se.Exam_ID = @examID)
 			AND
 			(@studentID IS NULL OR se.Student_ID = @studentID)
+			AND
+			(@minGrade IS NULL OR se.Grade >= @minGrade)
+			AND
+			(@maxGrade IS NULL OR se.Grade <= @maxGrade)
 	END TRY  
 	BEGIN CATCH  
-		THROW 500, 'Could not delete student exam', 16
+		THROW 50000, 'Could not delete student exam,', 16
 	END CATCH
 END;
 GO

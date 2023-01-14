@@ -18,7 +18,7 @@ AS
 		(@answer IS NULL OR seqs.Answer = @answer)
 	END TRY  
 	BEGIN CATCH  
-		THROW 500, 'Could not select student exam question answer', 16
+		THROW 50000, 'Could not select student exam question answer', 16
 	END CATCH
 GO
 ---------------------------------------
@@ -34,7 +34,7 @@ BEGIN
 		VALUES (@studentID, @examID, @questionID, @answer)
 	END TRY  
 	BEGIN CATCH  
-		THROW 500, 'Could not insert student exam question answer', 16
+		THROW 50000, 'Could not insert student exam question answer', 16
 	END CATCH
 END;
 GO
@@ -59,12 +59,15 @@ BEGIN
 			UPDATE seqs
 			SET seqs.Answer = @answer
 			FROM ITI_Exams.dbo.Student_Exam_Question_Solution seqs
-			WHERE seqs.Student_ID = @studentID
-			AND seqs.Exam_ID = @examID
-			AND seqs.Question_ID = @questionID
+			WHERE
+			(@examID IS NULL OR seqs.Exam_ID = @examID)
+			AND
+			(@studentID IS NULL OR seqs.Student_ID = @studentID)
+			AND
+			(@questionID IS NULL OR seqs.Question_ID = @questionID)
 	END TRY  
 	BEGIN CATCH  
-		THROW 500, 'Could not update student exam question answer', 16
+		THROW 50000, 'Could not update student exam question answer', 16
 	END CATCH
 END;
 GO
@@ -95,10 +98,10 @@ BEGIN
 			AND
 			(@questionID IS NULL OR seqs.Question_ID = @questionID)
 			AND
-			(@questionID IS NULL OR seqs.Question_ID = @questionID)
+			(@answer IS NULL OR seqs.Answer = @answer)
 	END TRY  
 	BEGIN CATCH  
-		THROW 500, 'Could not delete student exam question answer', 16
+		THROW 50000, 'Could not delete student exam question answer', 16
 	END CATCH
 END;
 GO
