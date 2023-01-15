@@ -3,12 +3,12 @@ GO
 
 -- This Utility proc responsible for Insert one answer into Table StudentExam_Question_Answer
 CREATE OR ALTER PROC InsertExamAnswerChoice (@eID INT, @sID INT, @ch INT)
-WITH ENCRYPTION
 AS
 BEGIN
  	BEGIN TRY
 	       declare @qID INT 
-		   select @qID = ch.Question_ID from  ITI_Exams.dbo.Choice as ch WHERE ch.ID = @ch
+	       select @qID = ch.Question_ID from  ITI_Exams.dbo.Choice as ch WHERE ch.ID = @ch
+	       
 	       exec InsertStudentExamQuestionAnswer  @sID, @eID, @qID, @ch
 	END TRY  
 	BEGIN CATCH  
@@ -19,7 +19,6 @@ GO
 
 -- This proc responsible for Insert 10 answers by student
 CREATE OR ALTER PROC ExamAnswer (@eID INT, @sID INT, @c1 INT, @c2 INT, @c3 INT, @c4 INT, @c5 INT, @c6 INT, @c7 INT, @c8 INT, @c9 INT, @c10 INT)
-WITH ENCRYPTION
 AS
 BEGIN
 		 
