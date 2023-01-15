@@ -1,7 +1,7 @@
 USE ITI_Exams
 GO
 -- SELECT Course
-CREATE PROC SelectCourse (@id INT = NULL, @cName varchar(30) = NULL)
+CREATE or Alter PROC SelectCourse (@id INT = NULL, @cName varchar(30) = NULL)
 WITH ENCRYPTION
 AS
 BEGIN
@@ -19,16 +19,6 @@ BEGIN
 END
 GO
 
--- SELECT Course Test
-SelectCourse 
-GO
-SelectCourse 5
-GO
-SelectCourse NULL, 'HTML5';
-GO
-SelectCourse 10;
-GO
-
 ---------------------------------------
 -- INSERT Course
 CREATE or Alter PROC InsertCourse (@cName varchar(16), @id INT OUTPUT)
@@ -44,11 +34,6 @@ BEGIN
 	END CATCH
 END;
 
-GO
-
--- INSERT Course Test
-DECLARE @Course_id INT;
-exec InsertCourse 'CSS3', @Course_id OUTPUT;
 GO
 
 ---------------------------------------
@@ -74,20 +59,6 @@ BEGIN
 END;
 GO
 
--- UPDATE TEST
-SelectCourse 6      -- this is JavaScript
-GO
-UpdateCourse NULL, 'JavaScript', 'JS';
-GO
-SelectCourse 5      -- Now, this became JS after update
-GO
-UpdateCourse 5, NULL, 'OS';  -- this is Operating System
-GO
-SelectCourse 5        -- Now, this became OS after update
-GO
-UpdateCourse NULL, NULL, 'OSEO'; -- Could not Update Course
-GO
-
 ---------------------------------------
 -- DELETE Course with 2 options by id or by name
 CREATE OR ALTER PROC DeleteCourse (@id INT , @cName varchar(30))
@@ -108,14 +79,4 @@ BEGIN
 	  select 'Could not delete Course'
 	END CATCH
 END;
-GO
-
--- DELETE TEST
-SelectCourse 3      -- this is HTML5
-GO
-DeleteCourse 3, NULL;   -- Delete HTML5  
-GO
-SelectCourse 3      -- Now, ID row 3 has been deeted
-GO
-DeleteCourse NULL, 'C++';  -- this delete C++ which has an ID = 1
 GO
