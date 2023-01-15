@@ -2,7 +2,6 @@ USE ITI_Exams
 GO
 -- SELECT Course
 CREATE or Alter PROC SelectCourse (@id INT = NULL, @cName varchar(30) = NULL)
-WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
@@ -11,7 +10,6 @@ BEGIN
 		(@id IS NULL OR c.ID = @id)
 		AND
 		(@cName IS NULL OR c.Name = @cName)
-
 	END TRY  
 	BEGIN CATCH  
 		select 'No Course with this ID or Name'
@@ -39,7 +37,6 @@ GO
 ---------------------------------------
 -- UPDATE Course with 2 options by id or by name
 CREATE or Alter PROC UpdateCourse (@id INT, @oldName varchar(30), @newName varchar(30))
-WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
@@ -49,7 +46,7 @@ BEGIN
 			SET c.Name = @newName
 			FROM ITI_Exams.dbo.Course as c
 			WHERE c.ID = @id or c.Name = @oldName
-        END
+                END
 		ELSE
 		select 'Could not update Course'
 	END TRY  
@@ -62,7 +59,6 @@ GO
 ---------------------------------------
 -- DELETE Course with 2 options by id or by name
 CREATE OR ALTER PROC DeleteCourse (@id INT , @cName varchar(30))
-WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
@@ -71,7 +67,7 @@ BEGIN
 			DELETE c
 			FROM ITI_Exams.dbo.Course as c
 			WHERE c.ID = @id or c.Name = @cName
-        END
+                END
 		ELSE
 		select 'Could not delete Course'
 	END TRY  
