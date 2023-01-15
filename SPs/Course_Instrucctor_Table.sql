@@ -1,7 +1,7 @@
 USE ITI_Exams
 GO
 -- SELECT Course_Instructor
-CREATE PROC SelectCourseInstructor (@cID INT = NULL, @insID INT = NULL)
+CREATE  or Alter PROC SelectCourseInstructor (@cID INT = NULL, @insID INT = NULL)
 WITH ENCRYPTION
 AS
 BEGIN
