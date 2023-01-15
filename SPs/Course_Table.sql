@@ -38,7 +38,7 @@ GO
 
 ---------------------------------------
 -- UPDATE Course with 2 options by id or by name
-CREATE PROC UpdateCourse (@id INT, @oldName varchar(30), @newName varchar(30))
+CREATE or Alter PROC UpdateCourse (@id INT, @oldName varchar(30), @newName varchar(30))
 WITH ENCRYPTION
 AS
 BEGIN
