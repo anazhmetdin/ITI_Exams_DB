@@ -3,7 +3,6 @@ GO
 
 -- Return the Courses and the Number of Students per each Course which teached by specific Instructor ID 
 CREATE OR ALTER PROC ReturnInstructorCourseStudents (@insID INT)
-WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
@@ -16,8 +15,8 @@ BEGIN
 		    on S_C.Course_ID     = C.ID inner join ITI_Exams.dbo.Student as S
 		    on S_C.Student_ID    = S.ID
 		    where I.ID = @insID
-            group by I.Name, C.Name
-       END
+                    group by I.Name, C.Name
+           END
 	   ELSE
 	       select 'No Instructor, Invalid ID or NULL'
 	END TRY  
@@ -25,15 +24,4 @@ BEGIN
 		select 'No Instructor, Invalid ID or NULL'
 	END CATCH
 END
-GO
-
------------------
---  Test ReturnInstructorCourseStudents
-exec ReturnInstructorCourseStudents 14   -- Generate Result
-GO
-exec ReturnInstructorCourseStudents 1    -- Empty This Instructor do not teach any course yet 
-GO
-exec ReturnInstructorCourseStudents 100  -- No Instructor, Invalid ID or NULL
-GO
-exec ReturnInstructorCourseStudents NULL -- No Instructor, Invalid ID or NULL
 GO
