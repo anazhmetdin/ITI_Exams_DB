@@ -51,7 +51,7 @@ BEGIN
 		select 'Could not update topic'
 	END TRY  
 	BEGIN CATCH  
-		THROW 500, 'Could not update topic', 16
+		select 'Could not update topic'
 	END CATCH
 END;
 GO
