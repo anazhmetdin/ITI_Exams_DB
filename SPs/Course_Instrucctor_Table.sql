@@ -19,18 +19,6 @@ BEGIN
 END
 GO
 
--- SELECT Course_Instructor
-SelectCourseInstructor 
-GO
-SelectCourseInstructor 5
-GO
-SelectCourseInstructor NULL, 10;
-GO
-SelectCourseInstructor 4, 9;
-GO
-SelectCourseInstructor 100, 9; -- Empty no Course_Ins with these IDs
-GO
-
 ---------------------------------------
 -- INSERT Course_Instructor
 CREATE or Alter PROC InsertCourseInstructor (@cID INT , @insID INT)
@@ -44,16 +32,6 @@ BEGIN
 		select 'Could not insert Course_Instructor it exist cannot duplicate or Null'
 	END CATCH
 END;
-GO
-
--- INSERT Course_Instructor Test
-exec InsertCourseInstructor 2, 3 ; 
-GO
-SelectCourseInstructor  -- insered done
-GO
-exec InsertCourseInstructor 2, 3; -- 'Could not insert Course_Instructor it exist cannot duplicate or Null'
-GO
-exec InsertCourseInstructor Null, 3; -- 'Could not insert Course_Instructor it exist cannot duplicate or Null'
 GO
 
 ---------------------------------------
@@ -80,14 +58,9 @@ BEGIN
 	END CATCH
 END;
 GO
--- Update Test
-SelectCourseInstructor 
-GO
-UpdateCourseInstructor 2, 5
-GO
 
---  Delete Course_Instructor
 -------------------------------------------------------
+--  Delete Course_Instructor
 CREATE or Alter PROC DeleteCourseInstructor (@cID INT = NULL, @insID INT = NULL)
 WITH ENCRYPTION
 AS
@@ -111,14 +84,3 @@ BEGIN
 	END CATCH
 END;
 GO
-
--- Delete Test
-SelectCourseInstructor 
-GO
-DeleteCourseInstructor 2;         -- this delete the course with ID = 2 and all Instructors who teches that course
-GO
-DeleteCourseInstructor NULL,  4;  -- this delete the Instructor with ID = 4 and the Course which is teached by him
-GO
-DeleteCourseInstructor 9, 105;      -- first this looks for Course with ID = 9, if exist it deletes all courses with this ID
-                                    -- else it looks for the Instructor whose ID = 5 if exist it delete it with his course
-								    -- else show the error message 
