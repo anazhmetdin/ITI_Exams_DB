@@ -24,7 +24,7 @@ AS
 BEGIN
 		 
  	BEGIN TRY
-	     EXEC InsertExamAnswerChoice @eID, @sID, @c1
+	         EXEC InsertExamAnswerChoice @eID, @sID, @c1
 		 EXEC InsertExamAnswerChoice @eID, @sID, @c2
 		 EXEC InsertExamAnswerChoice @eID, @sID, @c3
 		 EXEC InsertExamAnswerChoice @eID, @sID, @c4
