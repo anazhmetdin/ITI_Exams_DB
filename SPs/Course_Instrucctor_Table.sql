@@ -2,7 +2,6 @@ USE ITI_Exams
 GO
 -- SELECT Course_Instructor
 CREATE  or Alter PROC SelectCourseInstructor (@cID INT = NULL, @insID INT = NULL)
-WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
@@ -22,7 +21,6 @@ GO
 ---------------------------------------
 -- INSERT Course_Instructor
 CREATE or Alter PROC InsertCourseInstructor (@cID INT , @insID INT)
-WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
@@ -37,7 +35,6 @@ GO
 ---------------------------------------
 -- UPDATE Course_Instructor 
 CREATE or Alter PROC UpdateCourseInstructor (@insID INT, @cID INT )
-WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
@@ -49,7 +46,7 @@ BEGIN
 			SET C_I.Course_ID = @cID
 			FROM ITI_Exams.dbo.Course_Instructor as C_I
 			WHERE C_I.Instructor_ID = @insID
-        END
+                END
 		ELSE
 		select 'Could not update Course by new Instructor'
 	END TRY  
@@ -62,7 +59,6 @@ GO
 -------------------------------------------------------
 --  Delete Course_Instructor
 CREATE or Alter PROC DeleteCourseInstructor (@cID INT = NULL, @insID INT = NULL)
-WITH ENCRYPTION
 AS
 BEGIN
 	BEGIN TRY
@@ -71,7 +67,7 @@ BEGIN
 			Delete C_I
 			FROM ITI_Exams.dbo.Course_Instructor as C_I
 			WHERE C_I.Course_ID = @cID
-        END
+                END
 		ELSE IF EXISTS (select * from ITI_Exams.dbo.Course_Instructor as C_I where C_I.Instructor_ID = @insID)
 		    Delete C_I
 		    FROM ITI_Exams.dbo.Course_Instructor as C_I
