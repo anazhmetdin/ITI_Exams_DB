@@ -21,7 +21,7 @@ GO
 
 ---------------------------------------
 -- INSERT Topic
-CREATE PROC InsertTopic (@tName varchar(16), @id INT OUTPUT)
+CREATE or Alter PROC InsertTopic (@tName varchar(16), @id INT OUTPUT)
 AS
 BEGIN
 	BEGIN TRY
@@ -76,4 +76,3 @@ BEGIN
 	END CATCH
 END;
 GO
-
