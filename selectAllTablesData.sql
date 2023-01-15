@@ -17,3 +17,10 @@ begin
 end
 close s_cur
 deallocate s_cur
+--------------------------
+
+-- select procs in db
+
+SELECT * 
+FROM ITI_Exams.INFORMATION_SCHEMA.ROUTINES\
+WHERE ROUTINE_TYPE = 'PROCEDURE'
