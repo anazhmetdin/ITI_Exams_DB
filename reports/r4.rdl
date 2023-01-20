@@ -6,7 +6,7 @@
     <DataSource Name="DataSource1">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=KHALED;Initial Catalog=ITI_Exams</ConnectString>
+        <ConnectString>Data Source=.;Initial Catalog=ITI_Exams</ConnectString>
         <IntegratedSecurity>true</IntegratedSecurity>
       </ConnectionProperties>
       <rd:SecurityType>Integrated</rd:SecurityType>
@@ -16,7 +16,6 @@
   <DataSets>
     <DataSet Name="DataSet1">
       <Query>
-        <Timeout>3</Timeout>
         <DataSourceName>DataSource1</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@cid">
@@ -25,6 +24,7 @@
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>GetCourseTopics</CommandText>
+        <Timeout>3</Timeout>
       </Query>
       <Fields>
         <Field Name="Name">
@@ -42,7 +42,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.49167in</Width>
+                  <Width>5.28333in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -151,7 +151,7 @@
             <Top>0.78333in</Top>
             <Left>0.21667in</Left>
             <Height>0.5in</Height>
-            <Width>2.49167in</Width>
+            <Width>5.28333in</Width>
             <Style>
               <Border>
                 <Style>None</Style>

@@ -6,7 +6,7 @@
     <DataSource Name="DataSource1">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=KHALED;Initial Catalog=ITI_Exams</ConnectString>
+        <ConnectString>Data Source=.;Initial Catalog=ITI_Exams</ConnectString>
         <IntegratedSecurity>true</IntegratedSecurity>
       </ConnectionProperties>
       <rd:SecurityType>Integrated</rd:SecurityType>
@@ -49,10 +49,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.90625in</Width>
+                  <Width>2.75in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.90625in</Width>
+                  <Width>2.75in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -238,9 +238,9 @@
             </TablixRowHierarchy>
             <DataSetName>InstructorCoursesStudents</DataSetName>
             <Top>1.00833in</Top>
-            <Left>2.53333in</Left>
+            <Left>0in</Left>
             <Height>1.11458in</Height>
-            <Width>3.8125in</Width>
+            <Width>5.5in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -285,7 +285,7 @@
             <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
             <rd:DefaultName>ReportTitle</rd:DefaultName>
             <Top>0.15833in</Top>
-            <Left>1.925in</Left>
+            <Left>0in</Left>
             <Height>0.5in</Height>
             <Width>5.5in</Width>
             <ZIndex>1</ZIndex>
@@ -307,10 +307,10 @@
           </Border>
         </Style>
       </Body>
-      <Width>9.25833in</Width>
+      <Width>5.8in</Width>
       <Page>
         <PageFooter>
-          <Height>1.74167in</Height>
+          <Height>0.7in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -332,7 +332,7 @@
               </Paragraphs>
               <rd:DefaultName>ExecutionTime</rd:DefaultName>
               <Top>0.30833in</Top>
-              <Left>7.1in</Left>
+              <Left>3.5in</Left>
               <Height>0.25in</Height>
               <Width>2in</Width>
               <Style>
